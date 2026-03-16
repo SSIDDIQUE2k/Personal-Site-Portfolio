@@ -113,15 +113,13 @@ export function Footer() {
                 GitHub <ArrowUpRight size={11} />
               </a>
             )}
-            <a
-              href={siteConfig.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="text-xs font-inconsolata uppercase tracking-wider hover:opacity-80 transition-colors inline-flex items-center gap-1"
               style={{ color: "var(--text-dim)" }}
             >
-              Book a call <ArrowUpRight size={11} />
-            </a>
+              Contact <ArrowUpRight size={11} />
+            </Link>
             <a
               href="https://railway.app"
               target="_blank"

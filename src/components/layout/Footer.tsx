@@ -122,6 +122,19 @@ export function Footer() {
             >
               Book a call <ArrowUpRight size={11} />
             </a>
+            <a
+              href="https://railway.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-inconsolata uppercase tracking-wider hover:opacity-80 transition-colors inline-flex items-center gap-1.5"
+              style={{ color: "var(--text-dim)" }}
+              aria-label="Powered by Railway"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M.113 17.33c-.14.2-.04.453.2.526l3.744 1.08c.147.042.303-.01.39-.134l5.727-8.2c.128-.182.037-.436-.175-.49L6.82 9.4a.343.343 0 0 0-.367.112L.113 17.33ZM9.545 21.528c-.068.196.065.397.27.397h3.792c.132 0 .25-.088.288-.216l4.91-16.2c.07-.228-.1-.448-.332-.4l-3.477.666a.302.302 0 0 0-.234.21l-5.217 15.543ZM18.21 8.088c-.14.198-.04.45.2.523l3.428.988c.23.066.46-.114.404-.35L20.655 2.31a.302.302 0 0 0-.44-.186L18.21 8.088Z"/>
+              </svg>
+              Powered by Railway
+            </a>
           </div>
         </div>
       </div>

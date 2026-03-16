@@ -91,8 +91,9 @@ export default function PortfolioPage() {
           <div className="container mx-auto max-w-6xl">
             <PortfolioGrid
               projects={clientProjects}
-              sectionTitle="Client Projects"
-              sectionSubtitle="Work delivered for real clients with documented outcomes."
+              sectionTitle="Client Work"
+              sectionSubtitle="Paid engagements with real businesses — documented outcomes and measurable results."
+              projectType="client"
             />
           </div>
         </section>
@@ -104,8 +105,9 @@ export default function PortfolioPage() {
           <div className="container mx-auto max-w-6xl">
             <PortfolioGrid
               projects={personalProjects}
-              sectionTitle="Personal Projects"
-              sectionSubtitle="Side projects, hackathons, and explorations."
+              sectionTitle="Personal Builds"
+              sectionSubtitle="Side projects, hackathons, and explorations — built to learn and ship."
+              projectType="personal"
             />
           </div>
         </section>

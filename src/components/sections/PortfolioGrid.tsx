@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { projects as allProjects } from "@/lib/config";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { ArrowRight, TrendingUp, Layers, ArrowUpDown } from "lucide-react";
+import { ArrowRight, TrendingUp, Layers, ArrowUpDown, Briefcase, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Project = (typeof allProjects)[number];
@@ -14,12 +14,14 @@ interface PortfolioGridProps {
   projects?: Project[];
   sectionTitle?: string;
   sectionSubtitle?: string;
+  projectType?: "client" | "personal";
 }
 
 export function PortfolioGrid({
   projects: projectsProp,
   sectionTitle,
   sectionSubtitle,
+  projectType,
 }: PortfolioGridProps) {
   const sourceProjects = projectsProp ?? allProjects;
 
@@ -65,7 +67,11 @@ export function PortfolioGrid({
       {sectionTitle && (
         <RevealOnScroll>
           <div className="mb-10">
-            <p className="section-label">{sectionTitle}</p>
+            <div className="flex items-center gap-2">
+              {projectType === "client" && <Briefcase size={14} style={{ color: "var(--accent)" }} aria-hidden="true" />}
+              {projectType === "personal" && <User size={14} style={{ color: "var(--text-dim)" }} aria-hidden="true" />}
+              <p className="section-label">{sectionTitle}</p>
+            </div>
             {sectionSubtitle && (
               <p className="text-sm font-montserrat max-w-lg" style={{ color: "var(--text-muted)" }}>
                 {sectionSubtitle}
@@ -156,7 +162,19 @@ export function PortfolioGrid({
 
               {/* Content */}
               <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-3">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  {/* Type badge */}
+                  <span
+                    className="inline-flex items-center gap-1 text-[10px] font-inconsolata font-bold uppercase tracking-[0.15em] px-2 py-0.5"
+                    style={
+                      project.type === "client"
+                        ? { backgroundColor: "var(--accent)", color: "var(--accent-fg)" }
+                        : { backgroundColor: "var(--overlay-bold)", color: "var(--text-dim)", border: "1px solid var(--border-bold)" }
+                    }
+                  >
+                    {project.type === "client" ? <Briefcase size={9} aria-hidden="true" /> : <User size={9} aria-hidden="true" />}
+                    {project.type === "client" ? "Client" : "Personal"}
+                  </span>
                   <span className="badge">{project.category}</span>
                   {project.tags
                     .filter((t) => t !== project.category)

@@ -1,0 +1,6 @@
+PLACEHOLDER — Replace this file:
+
+  Add your resume as: public/resume.pdf
+
+  The resume page embeds this file at /resume.pdf and provides a download button.
+  Recommended: Export from Google Docs, Microsoft Word, or a PDF editor.

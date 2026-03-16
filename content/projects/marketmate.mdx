@@ -1,0 +1,47 @@
+---
+title: "MarketMate — AI Marketing Tool"
+slug: "marketmate"
+category: "AI/Automation"
+summary: "Built and shipped a working AI-powered marketing content generator at NY TechWeek Hackathon in 48 hours — with live user data at demo time and secure production deployment on Vercel."
+stack: ["Next.js", "TypeScript", "OpenAI API", "Supabase", "Vercel"]
+metrics: ["Shipped in 48 hours", "Live demo with real users", "Vercel production deploy"]
+featured: false
+---
+
+## The Problem
+
+NY TechWeek Hackathon: build a product that solves a real marketing problem using AI, in 48 hours, with a working demo and live users at presentation.
+
+The team identified a common pain point: small business owners spend hours writing marketing copy — emails, social posts, product descriptions — and iterate manually without knowing what works. We built a tool that generates multiple content variants and tracks which ones get used.
+
+## What Was Built
+
+- **Content generation engine**: OpenAI API integration with per-content-type prompt templates (email subject lines, social captions, product descriptions). Each type returns 3 variants for comparison.
+- **Usage tracking**: Supabase logs which variants users select, feeding a simple analytics dashboard.
+- **Authentication**: Supabase Auth with email/password and session persistence.
+- **Vercel deployment**: pushed at hour 20 (not hour 47) to allow real external user testing before the demo.
+
+## Architecture Decisions
+
+**Structured prompting vs free-form**
+Free-form generation produced inconsistent output. Switched to per-content-type templates with explicit format instructions (e.g., "Generate 3 email subject lines under 60 characters each, using action verbs"). Consistency improved dramatically.
+
+**Deploy early**
+Deploying at hour 20 instead of hour 47 gave 28 hours to test with real users, catch environment-specific bugs, and collect actual usage data to show judges.
+
+## Process
+
+- **Hours 0–2**: Defined MVP scope. One content type end-to-end, with auth, generation, selection, and tracking. Everything else was stretch.
+- **Hours 2–14**: Divided work — auth + DB schema / OpenAI integration + prompt design / frontend interface. Synced every 3 hours.
+- **Hours 14–20**: Integration + QA. Fixed auth token passing between frontend and API routes.
+- **Hour 20**: First Vercel deploy. Fixed one environment variable misconfiguration.
+- **Hours 20–44**: Added two additional content types, shared URL with 8 external testers, made 3 UX adjustments based on feedback.
+- **Hours 44–48**: Polish and demo prep.
+
+## Results
+
+- **Working product shipped in 48 hours** — all core features functional at demo time
+- **Live demo with real usage data**: 8 external users, 43 content generations tracked
+- **Secure production deployment** on Vercel with proper environment variable management
+- **Consistent AI output quality** achieved through per-content-type prompt templates
+- **Team of 3 coordinated** across frontend, backend, and AI integration without overlap

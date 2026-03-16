@@ -1,0 +1,44 @@
+---
+title: "Real-Time Ride Booking App"
+slug: "uber-clone"
+category: "Web"
+summary: "Full-stack ride booking application with real-time state, role-based auth, and live AWS deployment — built to production standards to demonstrate real-time systems architecture."
+stack: ["Next.js", "TypeScript", "Firebase", "AWS", "Tailwind CSS"]
+metrics: ["Sub-200ms booking latency", "Live AWS deployment", "Full auth + role management"]
+featured: false
+---
+
+## The Problem
+
+The goal was a production-quality portfolio project demonstrating real-time systems architecture, auth design, and cloud deployment — not just a tutorial clone. The app needed to handle concurrent state updates between driver and rider interfaces, manage role-based access, and run on a real production environment.
+
+## What Was Built
+
+- **Next.js + TypeScript frontend** with real-time UI updates using Firebase listeners. Both driver and rider interfaces reflect booking state changes within milliseconds without polling.
+- **Firebase Realtime Database** for live booking state: ride requests, driver acceptance, status transitions (requested → accepted → en route → completed).
+- **Firebase Authentication** with email/password and Google OAuth, and role-based routing — drivers and riders see separate app flows after login.
+- **Booking state machine** with clearly defined transitions. Invalid transitions are rejected.
+- **AWS EC2 deployment** with HTTPS via Nginx reverse proxy and environment variable management for Firebase credentials.
+
+## Architecture Decisions
+
+**Why Firebase for real-time state?**
+Firebase provides built-in WebSocket connections without managing a WebSocket server. For this scope, the tradeoff of vendor lock-in for operational simplicity was correct.
+
+**Role separation**
+Driver and rider interfaces are separate route trees (`/driver/*` and `/rider/*`) rather than a single interface with conditional rendering. This makes permissions cleaner and the UX more focused.
+
+## Process
+
+1. **Architecture design**: Mapped the booking state machine before writing any code. Defined all valid state transitions and edge cases (driver cancels after acceptance, rider cancels mid-route).
+2. **Auth + role routing**: Implemented authentication first. Both email/password and OAuth flows required.
+3. **Real-time booking flow**: Built the core booking → acceptance → completion loop, testing concurrent updates with two browser sessions simultaneously.
+4. **AWS deployment**: Configured EC2, set up Nginx reverse proxy, managed environment variables for sensitive credentials.
+5. **Documentation**: Architecture doc covering state machine design, deployment steps, and environment setup.
+
+## Results
+
+- **Sub-200ms booking confirmation latency** measured locally; ~400ms on production EC2
+- **Live production deployment** on AWS with HTTPS
+- **Complete auth implementation** including OAuth, session persistence, and role-based access control
+- **Concurrent driver/rider sessions** handled correctly across all booking state transitions

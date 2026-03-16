@@ -1,0 +1,61 @@
+---
+title: "Brooklyn College Athletics Systems"
+slug: "athletics-systems"
+category: "Ops/Systems"
+summary: "Maintained 99.9% uptime for the athletics department website across a full academic year. Redesigned check-in workflow for 1,000+ user events, cutting average wait time by 40%."
+stack: ["WordPress", "Python", "Google Workspace", "Uptime monitoring"]
+metrics: ["99.9% uptime", "40% wait time reduction", "1,000+ users", "Zero unplanned outages"]
+featured: true
+---
+
+## The Problem
+
+The athletics department ran 50+ events per year with a check-in process built entirely on manual spreadsheet lookups. At peak events with 1,000+ attendees, staff spent over 3 minutes per person searching, matching, and recording names — creating lines that stretched out the door before the first game.
+
+At the same time, the athletics website experienced intermittent outages with no monitoring in place. When the site went down, nobody knew until a user reported it, sometimes hours later.
+
+## Context & Constraints
+
+The solution needed to fit around existing infrastructure:
+
+- **No dedicated IT staff** on-site during events. The system had to be staff-operated with minimal training.
+- **Hardware was fixed.** We had existing tablets and laptops — no budget for dedicated scanners.
+- **The website ran WordPress** on shared hosting. Major platform changes were out of scope.
+- **Documentation was nearly nonexistent.** Anything built had to come with a runbook.
+
+## What Was Built
+
+- **QR-based check-in system** replacing the manual spreadsheet. Python script pre-processed attendee rosters and generated individual QR codes per person, sent via automated email before each event.
+- **Tablet-based scanning workflow** using existing devices and a lightweight web form for fallback manual entry when QR was unavailable.
+- **Google Workspace automation** for pre-event communication: automated roster emails, confirmation messages, and post-event attendance exports.
+- **WordPress uptime monitoring** with 5-minute check intervals and email/SMS alerting.
+- **Staff runbook** documenting every step of event day setup, QR scanning procedure, fallback processes, and post-event data export.
+
+## Process
+
+**Phase 1 — Audit**
+
+Mapped the existing check-in flow end to end. Identified three major bottlenecks:
+1. Roster lookup was alphabetical-only with no search — staff scanned the list manually
+2. No pre-validation: duplicate registrations weren't caught until event day
+3. Post-event reconciliation took 2+ hours of manual data entry
+
+**Phase 2 — Redesign**
+
+Moved all pre-validation work before event day. The Python script now deduplicates the roster, flags anomalies, generates unique QR codes, and sends personalized confirmation emails with codes attached.
+
+**Phase 3 — Testing**
+
+Ran 3 pilot events before full rollout. Each surfaced one improvement — email deliverability filtering, tablet camera lag on older devices, and post-event CSV schema mismatch. All resolved before full launch.
+
+**Phase 4 — Rollout + documentation**
+
+Full rollout at the start of the following semester with a 12-page staff runbook covering every scenario, including fallback procedures.
+
+## Results
+
+- **99.9% website uptime** maintained across the full academic year — zero unplanned outages after monitoring was in place
+- **40% reduction in per-person check-in time** (from ~3 min to ~1.8 min average at peak events)
+- **1,000+ users processed smoothly** at the two largest events of the year
+- **Staff operated the system independently** within 2 events of handoff — no support calls
+- **Post-event reconciliation dropped from 2+ hours to under 20 minutes** due to automated exports

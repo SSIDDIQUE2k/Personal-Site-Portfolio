@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ── Dark theme (default) ─────────────────────────── */
+  :root {
+    --bg:          #0a0a0a;
+    --bg-alt:      #111111;
+    --bg-elevated: #1a1a1a;
+    --text:        #ffffff;
+    --text-muted:  #aaaaaa;
+    --text-dim:    #777777;
+    --border:      rgba(255, 255, 255, 0.10);
+    --border-bold: rgba(255, 255, 255, 0.20);
+    --accent:      #ffffff;
+    --accent-fg:   #000000;
+    --card-bg:     #111111;
+    --overlay:     rgba(255, 255, 255, 0.05);
+    --overlay-bold:rgba(255, 255, 255, 0.12);
+    --focus-ring:  #ffffff;
+    --code-dot:    #404040;
+    --code-dim:    #525252;
+    --code-line:   #d4d4d4;
+    --code-comment:#525252;
+    --code-bright: #ffffff;
+    --gradient-text-from: #737373;
+    --gradient-text-to:   #a3a3a3;
+    --gradient-stroke:    rgba(255,255,255,0.3);
+    --success-bg:  rgba(34,197,94,0.10);
+    --success-border: rgba(34,197,94,0.25);
+    --success-text: #4ade80;
+    --success-heading: #86efac;
+    --error-bg:    rgba(239,68,68,0.10);
+    --error-border: rgba(239,68,68,0.25);
+    --error-text:  #f87171;
+    --error-heading: #fca5a5;
+    --required:    #f87171;
+  }
+
+  /* ── Light theme ──────────────────────────────────── */
+  html.light {
+    --bg:          #ffffff;
+    --bg-alt:      #f5f5f5;
+    --bg-elevated: #eeeeee;
+    --text:        #0a0a0a;
+    --text-muted:  #555555;
+    --text-dim:    #888888;
+    --border:      rgba(0, 0, 0, 0.10);
+    --border-bold: rgba(0, 0, 0, 0.20);
+    --accent:      #0a0a0a;
+    --accent-fg:   #ffffff;
+    --card-bg:     #f5f5f5;
+    --overlay:     rgba(0, 0, 0, 0.04);
+    --overlay-bold:rgba(0, 0, 0, 0.10);
+    --focus-ring:  #0a0a0a;
+    --code-dot:    #d4d4d4;
+    --code-dim:    #a3a3a3;
+    --code-line:   #404040;
+    --code-comment:#a3a3a3;
+    --code-bright: #0a0a0a;
+    --gradient-text-from: #a3a3a3;
+    --gradient-text-to:   #737373;
+    --gradient-stroke:    rgba(0,0,0,0.3);
+    --success-bg:  rgba(22,163,74,0.10);
+    --success-border: rgba(22,163,74,0.25);
+    --success-text: #16a34a;
+    --success-heading: #15803d;
+    --error-bg:    rgba(220,38,38,0.10);
+    --error-border: rgba(220,38,38,0.25);
+    --error-text:  #dc2626;
+    --error-heading: #b91c1c;
+    --required:    #dc2626;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-montserrat), sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--border-bold);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-raleway), sans-serif;
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+}
+
+@layer components {
+
+  /* ── BUTTONS ─────────────────────────────────────────────── */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 px-8 py-3.5
+           font-raleway font-bold text-sm uppercase tracking-widest
+           overflow-hidden transition-all duration-300
+           active:scale-[0.98] select-none;
+    background-color: var(--accent);
+    color: var(--accent-fg);
+  }
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.08) 50%, transparent 100%);
+    transition: transform 0.4s ease;
+  }
+  .btn-primary:hover::before { @apply translate-x-full; }
+  .btn-primary:hover { box-shadow: 0 0 20px var(--overlay-bold); }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center gap-2 px-8 py-3.5
+           font-raleway font-bold text-sm uppercase tracking-widest
+           bg-transparent overflow-hidden
+           transition-all duration-300
+           active:scale-[0.98] select-none;
+    border: 2px solid var(--accent);
+    color: var(--text);
+  }
+  .btn-secondary::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,1) 50%, transparent 100%);
+    transition: transform 0.4s ease;
+  }
+  .btn-secondary:hover::before { @apply translate-x-full; }
+  .btn-secondary:hover { background: var(--accent); color: var(--accent-fg); }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           font-inconsolata font-medium text-sm uppercase tracking-wider
+           transition-all duration-200
+           select-none;
+    color: var(--text-dim);
+  }
+  .btn-ghost:hover { color: var(--text); }
+  .btn-ghost:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center gap-2 px-8 py-3.5
+           font-raleway font-bold text-sm uppercase tracking-widest
+           transition-all duration-300
+           active:scale-[0.98] select-none;
+    background-color: var(--accent);
+    color: var(--accent-fg);
+  }
+  .btn-white:hover { opacity: 0.85; }
+  .btn-white:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* ── CARDS ──────────────────────────────────────────────── */
+  .card {
+    @apply transition-all duration-300;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+  }
+
+  .card-hover {
+    @apply card hover:opacity-90 hover:-translate-y-1;
+  }
+
+  /* ── SECTIONS ───────────────────────────────────────────── */
+  .section     { @apply py-24 md:py-32; background-color: var(--bg); }
+  .section-alt { @apply py-24 md:py-32; background-color: var(--bg-alt); }
+  .section-dark{ @apply py-24 md:py-32; background-color: var(--bg); }
+  .section-sm  { @apply py-14 md:py-20; }
+
+  /* ── SECTION LABEL ──────────────────────────────────────── */
+  .section-label {
+    @apply inline-flex items-center gap-3 text-xs
+           font-inconsolata font-medium
+           tracking-[0.25em] uppercase mb-4;
+    color: var(--text-dim);
+  }
+  .section-label::before {
+    content: '';
+    @apply block w-8 h-px flex-shrink-0;
+    background-color: var(--text-dim);
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-6xl lg:text-7xl font-raleway font-black
+           leading-none uppercase tracking-tight;
+    color: var(--text);
+  }
+
+  /* ── BADGE ──────────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs
+           font-inconsolata font-medium uppercase tracking-wider
+           border;
+    background-color: var(--overlay);
+    color: var(--text-muted);
+    border-color: var(--border-bold);
+  }
+
+  .badge-slate {
+    @apply inline-flex items-center px-3 py-1 text-xs
+           font-inconsolata font-medium
+           border;
+    background-color: var(--overlay);
+    color: var(--text-dim);
+    border-color: var(--border);
+  }
+
+  /* ── FORM ELEMENTS ──────────────────────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-3.5 text-sm font-montserrat
+           transition-colors duration-200
+           focus:outline-none
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-bold);
+    color: var(--text);
+  }
+  .form-input::placeholder { color: var(--text-dim); }
+  .form-input:focus { border-color: var(--accent); }
+
+  .form-label {
+    @apply block text-xs font-inconsolata font-medium uppercase
+           tracking-wider mb-2;
+    color: var(--text-muted);
+  }
+
+  .form-error {
+    @apply text-xs mt-1;
+    color: var(--error-text);
+  }
+
+  .field-error {
+    border-color: var(--error-text) !important;
+  }
+  .field-error:focus {
+    border-color: var(--error-text) !important;
+    box-shadow: 0 0 0 3px var(--error-bg);
+  }
+
+  /* ── NAV LINKS ──────────────────────────────────────────── */
+  .nav-link {
+    @apply text-xs font-inconsolata font-medium uppercase tracking-[0.2em]
+           transition-colors duration-200 hover:opacity-80;
+    color: var(--text-dim);
+  }
+
+  .nav-link.active { color: var(--text); }
+
+  /* ── DIVIDER ────────────────────────────────────────────── */
+  .divider { @apply border-t; border-color: var(--border); }
+
+  /* ── THICK BORDER HEADING (reference style) ──────────────── */
+  .heading-bordered {
+    @apply py-4 border-t-4 border-b-4;
+    border-color: var(--accent);
+  }
+
+  /* ── METRIC VALUES ──────────────────────────────────────── */
+  .metric-value {
+    @apply text-5xl md:text-6xl font-raleway font-black leading-none
+           tabular-nums uppercase;
+    color: var(--text);
+  }
+  .metric-label { @apply text-sm font-medium mt-2; color: var(--text-muted); }
+  .metric-sub   { @apply text-xs mt-1; color: var(--text-dim); }
+
+  /* ── MDX PROSE ──────────────────────────────────────────── */
+  .prose-content { color: var(--text-muted); }
+
+  .prose-content h2 {
+    @apply text-2xl font-raleway font-black mt-12 mb-4
+           pb-3 border-b-2 uppercase tracking-tight;
+    color: var(--text);
+    border-color: var(--border-bold);
+  }
+  .prose-content h3 {
+    @apply text-lg font-raleway font-bold mt-8 mb-3 uppercase;
+    color: var(--text);
+  }
+  .prose-content p    { @apply mb-5 leading-relaxed; }
+  .prose-content ul   { @apply list-disc list-outside pl-5 mb-5 space-y-2; }
+  .prose-content ol   { @apply list-decimal list-outside pl-5 mb-5 space-y-2; }
+  .prose-content li   { color: var(--text-muted); }
+  .prose-content strong { @apply font-semibold; color: var(--text); }
+  .prose-content code {
+    @apply px-1.5 py-0.5 text-[0.875em] font-inconsolata;
+    color: var(--text);
+    background-color: var(--overlay-bold);
+  }
+  .prose-content blockquote {
+    @apply border-l-4 pl-5 italic my-6;
+    border-color: var(--border-bold);
+    color: var(--text-dim);
+  }
+
+  /* ── TESTIMONIALS CAROUSEL ─────────────────────────────── */
+  .carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  .carousel-track {
+    animation: carousel-scroll 30s linear infinite;
+    width: max-content;
+  }
+  .carousel-card {
+    flex-shrink: 0;
+  }
+  @keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── CODE ANIMATION ─────────────────────────────────────── */
+  .code-window {
+    @apply border overflow-hidden font-inconsolata text-sm;
+    border-color: var(--border);
+    background-color: var(--bg);
+  }
+  .code-window-bar {
+    @apply flex items-center gap-1.5 px-4 py-3 border-b;
+    border-color: var(--border);
+    background-color: var(--overlay);
+  }
+}
+
+/* ── ANIMATION HELPERS ──────────────────────────────────────── */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ── SCROLL REVEAL ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CURSOR BLINK ───────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--text);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}

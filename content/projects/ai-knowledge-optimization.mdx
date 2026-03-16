@@ -1,0 +1,61 @@
+---
+title: "AI Knowledge Optimization"
+slug: "ai-knowledge-optimization"
+category: "AI/Automation"
+summary: "Built a RAG-based internal knowledge system that reduced average search time from ~8 minutes to ~3 minutes — a 60% improvement — while improving answer accuracy by 45% over keyword search baseline."
+stack: ["Python", "LangChain", "OpenAI API", "Vector DB", "FastAPI"]
+metrics: ["60% faster knowledge retrieval", "45% accuracy improvement", "Onboarding: 3 days → 1 day"]
+featured: true
+---
+
+## The Problem
+
+The team was spending significant time each day searching across multiple tools — Notion, shared drives, legacy wikis, and email threads — to answer recurring operational questions. For experienced staff, this added up to 30–40 minutes per day. For new team members onboarding took nearly 3 days before someone could confidently answer common questions independently.
+
+The core issue wasn't that the knowledge didn't exist. It was scattered, inconsistently formatted, and completely unsearchable as a unified body.
+
+## Context & Constraints
+
+- **No existing search infrastructure.** Standard file storage with no indexing or tagging.
+- **Documents varied widely in format**: Notion pages, PDFs, Word docs, and Google Docs exports.
+- **Minimal ongoing maintenance** was a hard requirement — no one to actively curate the system.
+- **Accuracy over recall.** Better to return "I don't know" than a confident wrong answer.
+
+## What Was Built
+
+- **Document ingestion pipeline** using LangChain document loaders for Notion exports, PDFs, and Google Docs. Documents chunked with overlap to preserve context.
+- **Vector database** (Chroma) for semantic search over embedded chunks. Embedding model: OpenAI `text-embedding-3-small`.
+- **RAG retrieval chain** using LangChain's RetrievalQA with a custom prompt enforcing source citations and "I don't have enough information" responses when confidence is low.
+- **Lightweight query interface**: internal web form via FastAPI, accessible to all staff without API keys.
+- **Evaluation framework**: 50-question test set with ground-truth answers for benchmarking accuracy before and after each iteration.
+
+## Process
+
+**Phase 1 — Document audit**
+
+Catalogued all documentation sources and identified the 20 most-asked recurring questions by reviewing Slack history and conducting 6 brief staff interviews. These questions became the evaluation test set.
+
+**Phase 2 — Ingestion + embedding**
+
+Built the ingestion pipeline. First pass: 847 chunks from 63 source documents. Identified and excluded outdated content that would have degraded accuracy.
+
+**Phase 3 — Retrieval optimization**
+
+Initial accuracy: 58% on the test set. Iterated on chunk size, retrieval k, and prompt structure over 4 rounds. Final accuracy: 84% — a 45% improvement over baseline.
+
+Key changes that moved the needle:
+- Smaller chunks with higher overlap improved multi-section retrieval
+- Increasing retrieval k from 3 to 5 helped multi-part questions
+- Explicit prompt instructions to cite sources and decline when uncertain
+
+**Phase 4 — Interface + handoff**
+
+Staff-facing interface: one text field, submit, answer with source citations. Delivered with documentation covering how to add documents, re-run ingestion, and interpret confidence signals.
+
+## Results
+
+- **60% reduction in average search time** (from ~8 min to ~3 min per query)
+- **45% accuracy improvement** over keyword search baseline (84% vs 58% on evaluation test set)
+- **New staff onboarding reduced from ~3 days to ~1 day** — team members could answer common questions independently by end of day one
+- **Zero maintenance interventions** in the first 60 days post-launch
+- **100% adoption** among eligible staff within the first week

@@ -1,0 +1,56 @@
+---
+title: "Client Business Website"
+slug: "client-website"
+category: "Web"
+summary: "Designed and deployed a Django-powered business website with custom CMS, production AWS infrastructure, and on-page SEO — achieving a 100% Lighthouse SEO score and enabling non-technical staff to self-manage all content."
+stack: ["Django", "PostgreSQL", "AWS EC2", "Bootstrap 5", "GA4"]
+metrics: ["100% Lighthouse SEO", "AWS production deploy", "Under 2s mobile load", "Client self-manages content"]
+featured: false
+---
+
+## The Problem
+
+The client needed a professional web presence that could generate leads and rank in local search. They had an outdated site that hadn't been updated in years and wasn't indexed by Google.
+
+The hard constraint: once built, the site had to be maintainable by non-technical staff without developer involvement for routine content updates.
+
+## Context & Constraints
+
+- **Budget sensitivity**: cost-effective AWS EC2 on a small instance, not managed hosting.
+- **Non-technical maintainers**: Django Admin customized as an accessible CMS.
+- **SEO was the primary business goal**: the client needed to rank in local search for their core services.
+- **No ongoing developer dependency**: documentation and training were a core deliverable.
+
+## What Was Built
+
+- **Django backend** with PostgreSQL (AWS RDS). Custom models for pages, services, testimonials, and contact submissions.
+- **Django Admin customization** as the CMS: simplified admin views with only the fields non-technical users need, with inline help text throughout.
+- **Bootstrap 5 frontend** with mobile-first responsive design. Templates with minimal JavaScript for fast load times.
+- **AWS EC2 deployment** on Ubuntu 22.04, Nginx + Gunicorn, SSL via Let's Encrypt with auto-renewal.
+- **On-page SEO**: meta titles/descriptions via admin, canonical URLs, LocalBusiness JSON-LD schema, XML sitemap, robots.txt.
+- **GA4 integration** with event tracking for contact form submissions and CTA clicks.
+
+## Process
+
+**Discovery**
+45-minute scoping call to define pages, target customers, and success criteria. Agreed on: Lighthouse SEO 90+, page load under 3s mobile, client can update any content independently.
+
+**SEO implementation**
+Ran Lighthouse audits throughout. Initial score: 67. Fixed:
+- Missing meta descriptions → admin-managed SEO fields
+- Images without alt text → enforced alt field in admin
+- No structured data → added LocalBusiness JSON-LD
+- Render-blocking resources → deferred non-critical JS, inlined critical CSS
+
+Final score: 100.
+
+**Training + handoff**
+2-hour walkthrough covering: adding service pages, updating testimonials, editing contact info, viewing GA4 reports. Accompanied by a written guide with screenshots.
+
+## Results
+
+- **100% Lighthouse SEO score** — up from 67 at project start
+- **AWS production deployment** with SSL and auto-renewing certificates
+- **Client self-managing all content** within one week of handoff, no support calls in the first month
+- **Page load under 2s on mobile** (1.7s measured on 4G simulation)
+- **Google Search Console** verified and indexing within 48 hours of launch

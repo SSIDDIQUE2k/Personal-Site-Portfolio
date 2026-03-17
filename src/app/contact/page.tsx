@@ -31,15 +31,13 @@ export default function ContactPage() {
           </h1>
           <p className="max-w-lg text-base leading-relaxed font-montserrat" style={{ color: "var(--text-muted)" }}>
             Tell me about your project or situation. I respond within 1&ndash;2
-            business days. For a faster response, book a{" "}
+            business days. For a faster response, call me at{" "}
             <a
-              href={siteConfig.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={siteConfig.phoneHref}
               className="hover:opacity-70 underline underline-offset-2 transition-colors"
               style={{ color: "var(--text)" }}
             >
-              15-min call directly
+              {siteConfig.phone}
             </a>
             .
           </p>

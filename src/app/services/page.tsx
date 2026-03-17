@@ -11,7 +11,7 @@ import {
   DollarSign,
   Users,
   ArrowRight,
-  ExternalLink,
+  Phone,
   Plus,
   HelpCircle,
 } from "lucide-react";
@@ -49,7 +49,7 @@ const faqItems = [
   },
   {
     q: "What if I need something not listed?",
-    a: "Book a 15-min call and we'll figure out scope together. Most custom requests fit within these packages with minor adjustments.",
+    a: "Give me a call at (646) 801-0626 and we'll figure out scope together. Most custom requests fit within these packages with minor adjustments.",
   },
 ];
 
@@ -74,17 +74,15 @@ export default function ServicesPage() {
           <div className="w-12 h-1 mb-6" style={{ backgroundColor: "var(--accent)" }} />
           <p className="font-montserrat max-w-xl text-base leading-relaxed mb-8" style={{ color: "var(--text-muted)" }}>
             Each package is scoped for small-to-mid-size businesses in NYC/NJ.
-            Every engagement starts with a free 15-min call so we both
+            Every engagement starts with a quick call so we both
             know it&apos;s the right fit before any money changes hands.
           </p>
           <a
-            href={siteConfig.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={siteConfig.phoneHref}
             className="btn-primary"
           >
-            Book a 15-min call
-            <ExternalLink size={14} />
+            Call {siteConfig.phone}
+            <Phone size={14} />
           </a>
         </div>
       </section>
@@ -325,16 +323,14 @@ export default function ServicesPage() {
               Not sure which service fits?
             </h2>
             <p className="font-montserrat text-sm mb-8 max-w-md mx-auto" style={{ color: "var(--text-muted)" }}>
-              Book a free call. We&apos;ll figure out the right scope together.
+              Call me and we&apos;ll figure out the right scope together.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href={siteConfig.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={siteConfig.phoneHref}
                 className="btn-primary"
               >
-                Book a 15-min call <ExternalLink size={14} />
+                Call {siteConfig.phone} <Phone size={14} />
               </a>
               <Link href="/contact" className="btn-secondary">
                 Send a message <ArrowRight size={14} />

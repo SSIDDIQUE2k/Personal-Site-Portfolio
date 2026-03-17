@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/mdx";
 import { projects as configProjects, siteConfig } from "@/lib/config";
 import { TagList } from "@/components/ui";
-import { ArrowLeft, TrendingUp, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, TrendingUp, ArrowRight, Phone } from "lucide-react";
 
 interface Props {
   params: { slug: string };
@@ -212,13 +212,11 @@ export default function CaseStudyPage({ params }: Props) {
                     <ArrowRight size={12} />
                   </Link>
                   <a
-                    href={siteConfig.calendly}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={siteConfig.phoneHref}
                     className="btn-secondary w-full justify-center mt-2"
                   >
-                    Book a call
-                    <ExternalLink size={12} />
+                    Call {siteConfig.phone}
+                    <Phone size={12} />
                   </a>
                 </div>
               </div>

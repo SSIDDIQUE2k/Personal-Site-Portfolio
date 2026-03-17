@@ -13,12 +13,12 @@ export const siteConfig = {
 
   // ── Contact ──────────────────────────────────────────────────────────────
   email: "siddiqueshazib5@gmail.com",
-  phone: "", // optional
+  phone: "(646) 801-0626",
+  phoneHref: "tel:+16468010626",
 
   // ── Social / External Links ──────────────────────────────────────────────
   linkedin: "https://linkedin.com/in/shazib-siddique", // ← update
   github: "https://github.com/shazib-siddique",         // ← update
-  calendly: "https://calendly.com/your-link",           // ← update
 
   // ── Design Tokens ────────────────────────────────────────────────────────
   accentColor: "#5F9EA0", // cadetblue

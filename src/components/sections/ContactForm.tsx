@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { siteConfig } from "@/lib/config";
 import {
-  Mail, Linkedin, Github, ArrowUpRight,
+  Mail, Linkedin, Github, Phone,
   CheckCircle2, AlertCircle, Send, Loader2,
 } from "lucide-react";
 
@@ -243,11 +243,11 @@ export function ContactForm() {
           <div className="card p-6" style={{ backgroundColor: "var(--overlay)" }}>
             <p className="text-sm font-raleway font-bold mb-2 uppercase" style={{ color: "var(--text)" }}>Prefer to talk?</p>
             <p className="text-xs mb-5 leading-relaxed font-montserrat" style={{ color: "var(--text-dim)" }}>
-              Book a free 15-minute call. No sales pitch &mdash; just a direct conversation about what you need.
+              Call directly &mdash; no voicemail maze. If I miss it, I&apos;ll call back within 24 hours.
             </p>
-            <a href={siteConfig.calendly} target="_blank" rel="noopener noreferrer"
+            <a href={siteConfig.phoneHref}
               className="btn-primary w-full justify-center text-xs">
-              Book a call <ArrowUpRight size={12} />
+              Call {siteConfig.phone} <Phone size={12} />
             </a>
           </div>
 
@@ -289,7 +289,7 @@ export function ContactForm() {
           <div className="border p-4" style={{ backgroundColor: "var(--overlay)", borderColor: "var(--border)" }}>
             <p className="text-xs leading-relaxed font-montserrat" style={{ color: "var(--text-dim)" }}>
               <strong style={{ color: "var(--text)" }}>Response time:</strong> Within 1&ndash;2 business days.
-              For urgent inquiries, book a same-week Calendly slot.
+              For urgent inquiries, call {siteConfig.phone} directly.
             </p>
           </div>
 

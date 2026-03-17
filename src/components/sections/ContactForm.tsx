@@ -28,7 +28,7 @@ const EMPTY: FormFields = {
 const needOptions = [
   "Website (Business Launch Kit)",
   "Workstation Setup (NYC in-person)",
-  "Business Card + Poster (Brand Starter Pack)",
+  "Business Card + Poster (Business Launch Essentials)",
   "Full-time or Contract hire",
   "Other / Not sure yet",
 ];

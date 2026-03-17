@@ -14,7 +14,7 @@ const footerLinks = {
   Services: [
     { label: "Web Presence & Lead System",  href: "/services#business-launch-kit" },
     { label: "Systems & Workstation Setup", href: "/services#workstation-setup" },
-    { label: "Print & Brand Materials",     href: "/services#brand-starter-pack" },
+    { label: "Business Launch Essentials",   href: "/services#brand-starter-pack" },
   ],
 };
 

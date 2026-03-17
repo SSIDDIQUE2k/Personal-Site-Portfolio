@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Business Launch Kit ($1,200+), Workstation Setup ($300+), Brand Starter Pack ($350+). Transparent pricing for NYC businesses.",
+    "Business Launch Kit ($1,200+), Workstation Setup ($300+), Business Launch Essentials ($350+). Transparent pricing for NYC businesses.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services — Shazib Siddique",

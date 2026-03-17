@@ -143,9 +143,6 @@ export default function ResumePage() {
                           </a>
                         </div>
                       </div>
-                      <p className="text-xs font-inconsolata mt-2" style={{ color: "var(--text-dim)" }}>
-                        Add your resume to: /public/resume.pdf
-                      </p>
                     </div>
                   </object>
                 </div>

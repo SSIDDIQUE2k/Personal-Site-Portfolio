@@ -28,7 +28,6 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "Resume", href: "/resume" },
     { label: "Experience", href: "/experience" },
-    { label: "Contact", href: "/contact" },
     { label: "Services", href: "/services" },
   ],
 
@@ -130,7 +129,7 @@ export const services = [
   {
     id: "brand-starter-pack",
     icon: "palette",
-    title: "Print & Brand Materials",
+    title: "Business Launch Essentials",
     tagline: "Professional business card + poster design — print-ready.",
     outcome: "Business card + poster",
     audience: "Small businesses and solo operators in NYC/NJ who need clean, professional print materials without hiring a full design agency.",

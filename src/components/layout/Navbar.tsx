@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Navbar() {
@@ -63,10 +63,8 @@ export function Navbar() {
             </Link>
           ))}
           <ThemeToggle />
-          <a
-            href={siteConfig.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="ml-3 inline-flex items-center gap-2 px-5 py-2
                        text-xs font-inconsolata font-bold uppercase tracking-[0.2em]
                        transition-all duration-300"
@@ -75,9 +73,9 @@ export function Navbar() {
               color: "var(--text)",
             }}
           >
-            Book a Call
-            <ArrowUpRight size={12} />
-          </a>
+            Contact Me
+            <ArrowRight size={12} />
+          </Link>
         </div>
 
         {/* Mobile: toggle + menu */}
@@ -124,10 +122,8 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={siteConfig.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="mt-4 mx-4 inline-flex items-center justify-center gap-2
                          px-5 py-3 text-xs font-inconsolata font-bold uppercase tracking-[0.2em]
                          transition-all duration-300"
@@ -136,9 +132,9 @@ export function Navbar() {
                 color: "var(--text)",
               }}
             >
-              Book a Call
-              <ArrowUpRight size={12} />
-            </a>
+              Contact Me
+              <ArrowRight size={12} />
+            </Link>
           </div>
         </div>
       </div>

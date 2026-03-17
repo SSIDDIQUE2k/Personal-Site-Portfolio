@@ -175,41 +175,6 @@ export function AboutFull() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16 border-b" style={{ backgroundColor: "var(--bg-alt)", borderColor: "var(--border)" }} aria-label="Process">
-        <div className="container mx-auto max-w-6xl">
-          <RevealOnScroll>
-            <div className="mb-12">
-              <p className="section-label">Process</p>
-              <h3 className="font-raleway font-black uppercase tracking-tight text-2xl md:text-3xl mb-4" style={{ color: "var(--text)" }}>
-                How I Work
-              </h3>
-              <div className="w-12 h-1 mb-4" style={{ backgroundColor: "var(--accent)" }} />
-              <p className="font-montserrat max-w-xl leading-relaxed" style={{ color: "var(--text-dim)" }}>
-                Five repeatable phases that apply to every engagement — ops
-                retainer, tech project, or web build.
-              </p>
-            </div>
-          </RevealOnScroll>
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {workProcess.map((phase, i) => (
-              <RevealOnScroll key={phase.step} delay={i * 80}>
-                <div className="text-center">
-                  <div
-                    className="w-12 h-12 border flex items-center justify-center mx-auto mb-4"
-                    style={{ backgroundColor: "var(--overlay)", borderColor: "var(--border-bold)" }}
-                  >
-                    <span className="text-xs font-bold" style={{ color: "var(--text)" }}>{phase.step}</span>
-                  </div>
-                  <h4 className="text-sm font-bold mb-2" style={{ color: "var(--text)" }}>{phase.title}</h4>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-dim)" }}>{phase.desc}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Skills */}
       <section className="py-16 border-b" style={{ backgroundColor: "var(--bg)", borderColor: "var(--border)" }} aria-label="Skills">
         <div className="container mx-auto max-w-6xl">

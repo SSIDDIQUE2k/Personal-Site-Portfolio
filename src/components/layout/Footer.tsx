@@ -5,16 +5,16 @@ import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 
 const footerLinks = {
   Pages: [
-    { label: "Home",      href: "/" },
-    { label: "Services",  href: "/services" },
-    { label: "Work",      href: "/portfolio" },
-    { label: "Resume",    href: "/resume" },
-    { label: "Contact",   href: "/contact" },
+    { label: "Home",        href: "/" },
+    { label: "Resume",      href: "/resume" },
+    { label: "Experience",  href: "/experience" },
+    { label: "Contact",     href: "/contact" },
+    { label: "Services",    href: "/services" },
   ],
   Services: [
-    { label: "Business Launch Kit",     href: "/services#business-launch-kit" },
-    { label: "Workstation Setup",       href: "/services#workstation-setup" },
-    { label: "Brand Starter Pack",      href: "/services#brand-starter-pack" },
+    { label: "Web Presence & Lead System",  href: "/services#business-launch-kit" },
+    { label: "Systems & Workstation Setup", href: "/services#workstation-setup" },
+    { label: "Print & Brand Materials",     href: "/services#brand-starter-pack" },
   ],
 };
 

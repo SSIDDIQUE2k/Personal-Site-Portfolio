@@ -206,25 +206,20 @@ export default function ResumePage() {
                   ))}
                 </div>
                 <p className="text-xs font-montserrat" style={{ color: "var(--text-dim)" }}>
-                  Also provide systems support and web builds — <Link href="/services" className="hover:opacity-80 underline underline-offset-2 transition-colors" style={{ color: "var(--text-muted)" }}>see Services</Link>.
+                  <Link href="/experience" className="hover:opacity-80 underline underline-offset-2 transition-colors" style={{ color: "var(--text-muted)" }}>View detailed experience &amp; project outcomes →</Link>
                 </p>
               </div>
 
               <div className="mt-4 p-4 border" style={{ backgroundColor: "var(--overlay)", borderColor: "var(--border-bold)" }}>
                 <p className="text-xs mb-3 font-montserrat" style={{ color: "var(--text-muted)" }}>
-                  Want to work together? Let&apos;s start with a quick call.
+                  Interested? I&apos;d welcome the conversation.
                 </p>
                 <div className="flex flex-col gap-2">
-                  <a
-                    href={siteConfig.calendly}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-xs justify-center"
-                  >
-                    Book a 15-min call <ExternalLink size={12} />
-                  </a>
-                  <Link href="/contact" className="btn-secondary text-xs justify-center">
-                    Send a message <ArrowRight size={12} />
+                  <Link href="/contact" className="btn-primary text-xs justify-center">
+                    Contact Me <ArrowRight size={12} />
+                  </Link>
+                  <Link href="/experience" className="btn-secondary text-xs justify-center">
+                    See My Experience <ArrowRight size={12} />
                   </Link>
                 </div>
               </div>

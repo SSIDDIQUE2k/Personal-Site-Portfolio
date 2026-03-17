@@ -3,7 +3,7 @@ import Link from "next/link";
 import { services } from "@/lib/config";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 
 export function ServicesPreview() {
   return (
@@ -13,14 +13,15 @@ export function ServicesPreview() {
         {/* Header */}
         <RevealOnScroll>
           <div className="mb-16">
-            <p className="section-label">What I do</p>
+            <p className="section-label">Services</p>
             <h2 className="section-heading mb-6">
-              Services
+              I Also Support Businesses Directly
             </h2>
             <div className="w-12 h-1 mb-6" style={{ backgroundColor: "var(--accent)" }} />
             <p className="text-base max-w-xl leading-relaxed font-montserrat" style={{ color: "var(--text-dim)" }}>
-              Three focused services — each scoped around results, not billable
-              hours. Pick the one that fits your situation.
+              Beyond full-time roles, I provide operations support, systems
+              setup, and web builds for NYC/NJ businesses — scoped with clear
+              deliverables and fixed pricing.
             </p>
           </div>
         </RevealOnScroll>
@@ -30,25 +31,9 @@ export function ServicesPreview() {
           {services.map((svc, i) => (
             <RevealOnScroll key={svc.id} delay={i * 100}>
               <div
-                className={cn(
-                  "p-10 h-full flex flex-col group relative",
-                  svc.featured && "border-t-2"
-                )}
-                style={
-                  svc.featured
-                    ? { backgroundColor: "var(--bg-alt)", borderTopColor: "var(--accent)" }
-                    : { backgroundColor: "var(--bg)" }
-                }
+                className="p-10 h-full flex flex-col group relative"
+                style={{ backgroundColor: "var(--bg)" }}
               >
-                {svc.featured && (
-                  <span
-                    className="text-[10px] font-inconsolata font-bold uppercase tracking-[0.2em] px-3 py-1 mb-6 inline-block self-start"
-                    style={{ backgroundColor: "var(--accent)", color: "var(--accent-fg)" }}
-                  >
-                    Most popular
-                  </span>
-                )}
-
                 <h3 className="text-lg font-raleway font-bold mb-2 uppercase" style={{ color: "var(--text)" }}>
                   {svc.title}
                 </h3>
@@ -84,7 +69,7 @@ export function ServicesPreview() {
         <RevealOnScroll>
           <div className="text-center mt-14">
             <Link href="/services" className="btn-secondary">
-              View all services
+              View Services &amp; Pricing
               <ArrowRight size={14} />
             </Link>
           </div>

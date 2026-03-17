@@ -3,11 +3,10 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
 import { Hero } from "@/components/sections/Hero";
 import { CredibilityBar } from "@/components/sections/CredibilityBar";
-import { ServicesPreview } from "@/components/sections/ServicesPreview";
-import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { ResultsHighlights } from "@/components/sections/ResultsHighlights";
-import { HomeCTA } from "@/components/sections/HomeCTA";
 import { AboutFull } from "@/components/sections/AboutFull";
+import { ServicesPreview } from "@/components/sections/ServicesPreview";
+import { HomeCTA } from "@/components/sections/HomeCTA";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -20,10 +19,9 @@ export default function HomePage() {
     <>
       <Hero />
       <CredibilityBar />
+      <ResultsHighlights />
       <AboutFull />
       <ServicesPreview />
-      <FeaturedProjects />
-      <ResultsHighlights />
       <HomeCTA />
     </>
   );

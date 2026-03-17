@@ -140,7 +140,7 @@ export function PortfolioGrid({
         {filtered.map((project, i) => (
           <RevealOnScroll key={project.slug} delay={i * 60}>
             <Link
-              href={`/portfolio/${project.slug}`}
+              href={`/experience/${project.slug}`}
               className="block h-full group focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{ backgroundColor: "var(--bg)" }}
               aria-label={`${project.title} — view case study`}

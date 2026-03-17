@@ -18,7 +18,7 @@ export function FeaturedProjects() {
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="section-heading">Projects</h2>
               <Link
-                href="/portfolio"
+                href="/experience"
                 className="inline-flex items-center gap-2 text-xs font-inconsolata font-bold
                            uppercase tracking-[0.2em] hover:opacity-70
                            transition-colors whitespace-nowrap"
@@ -36,7 +36,7 @@ export function FeaturedProjects() {
           {featured.map((project, i) => (
             <RevealOnScroll key={project.slug} delay={i * 100}>
               <Link
-                href={`/portfolio/${project.slug}`}
+                href={`/experience/${project.slug}`}
                 className="block h-full group focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{ backgroundColor: "var(--bg-alt)" }}
                 aria-label={`${project.title} — view case study`}

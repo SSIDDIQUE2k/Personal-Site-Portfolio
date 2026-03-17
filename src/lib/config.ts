@@ -4,9 +4,9 @@
 export const siteConfig = {
   // ── Identity ──────────────────────────────────────────────────────────────
   name: "Shazib Siddique",
-  title: "Shazib Siddique — Operations & Systems Support (NYC)",
+  title: "Shazib Siddique — Operations & Administrative Professional (NYC)",
   description:
-    "Operations support, workstation setup, and website builds for NYC businesses. Business Launch Kit from $1,200. Brooklyn-based, serving NYC + NJ.",
+    "Operations and administrative professional based in Brooklyn, NY. Event coordination, systems reliability, workflow optimization, and documented results for NYC/NJ organizations.",
   url: "https://shazibs.com", // ← update before deploy
   location: "Brooklyn, NY",
   locationServed: "NYC + NJ",
@@ -26,10 +26,10 @@ export const siteConfig = {
   // ── Navigation ───────────────────────────────────────────────────────────
   navLinks: [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
     { label: "Resume", href: "/resume" },
+    { label: "Experience", href: "/experience" },
     { label: "Contact", href: "/contact" },
+    { label: "Services", href: "/services" },
   ],
 
   // ── Open Graph / SEO ─────────────────────────────────────────────────────
@@ -40,29 +40,29 @@ export const siteConfig = {
 // ── Proof Metrics ────────────────────────────────────────────────────────────
 export const proofMetrics = [
   {
-    value: "99.9%",
-    label: "Uptime maintained",
-    sub: "Athletics website SLA",
+    value: "50+",
+    label: "Events coordinated annually",
+    sub: "End-to-end logistics & reporting",
   },
   {
     value: "40%",
-    label: "Faster workflow",
-    sub: "1,000+ user check-in system",
+    label: "Workflow improvement",
+    sub: "1,000+ user check-in redesign",
+  },
+  {
+    value: "99.9%",
+    label: "Systems uptime maintained",
+    sub: "Brooklyn College Athletics",
   },
   {
     value: "60%",
     label: "Faster knowledge retrieval",
-    sub: "RAG system optimization",
-  },
-  {
-    value: "50+",
-    label: "Events coordinated / year",
-    sub: "End-to-end operations",
+    sub: "Internal search system build",
   },
   {
     value: "45%",
     label: "Response accuracy gain",
-    sub: "AI system improvement",
+    sub: "AI knowledge system optimization",
   },
 ];
 
@@ -71,7 +71,7 @@ export const services = [
   {
     id: "business-launch-kit",
     icon: "globe",
-    title: "Business Launch Kit",
+    title: "Web Presence & Lead System",
     tagline: "A professional website that generates leads — launched in 7–10 days.",
     outcome: "Launch in 7–10 days",
     audience: "Local businesses, service providers, and consultants in NYC/NJ who need a credible online presence — not a $20k agency project.",
@@ -130,7 +130,7 @@ export const services = [
   {
     id: "brand-starter-pack",
     icon: "palette",
-    title: "Brand Starter Pack",
+    title: "Print & Brand Materials",
     tagline: "Professional business card + poster design — print-ready.",
     outcome: "Business card + poster",
     audience: "Small businesses and solo operators in NYC/NJ who need clean, professional print materials without hiring a full design agency.",
